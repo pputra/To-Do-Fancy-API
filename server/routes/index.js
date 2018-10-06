@@ -1,8 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const UserController = require('../controllers/userController');
-const TaskController = require('../controllers/taskController');
 const Middlewares = require('../middlewares');
+const taskRoute = require('./task');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -15,9 +15,9 @@ router.post('/login', UserController.login);
 
 router.use(Middlewares.isLogin);
 
-router.get('/:id', UserController.findById);
+router.get('/user-info', UserController.findById);
 
-router.post('/task/add', TaskController.add);
+router.use('/task', taskRoute);
 
 
 
