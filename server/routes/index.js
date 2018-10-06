@@ -1,7 +1,8 @@
 var express = require('express');
 var router = express.Router();
 const UserController = require('../controllers/userController');
-const ActivityController = require('../controllers/activityController');
+const TaskController = require('../controllers/taskController');
+const Middlewares = require('../middlewares');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
@@ -12,11 +13,13 @@ router.post('/register', UserController.register);
 
 router.post('/login', UserController.login);
 
+router.use(Middlewares.isLogin);
+
+router.get('/:id', UserController.findById);
+
+router.post('/task/add', TaskController.add);
 
 
-//router.post('/activity/add', ActivityController.add);
-
-//router.get('/:id', UserController.findById);
 
 
 module.exports = router;

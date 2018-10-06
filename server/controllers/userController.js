@@ -48,18 +48,18 @@ module.exports = {
 
        });
        
+   },
+
+
+
+
+   findById: (req, res) => {
+       User.findById(req.decoded.id).populate('todo').exec().then((user) => {
+           res.status(200).json(user);
+       }).catch((err) => {
+           res.send(err);
+       });
    }
-
-
-
-
-//    findById: (req, res) => {
-//        User.findById(req.params.id).populate('todo').exec().then((user) => {
-//            res.status(200).json(user);
-//        }).catch((err) => {
-//            res.send(err);
-//        });
-//    }
 };
 
 

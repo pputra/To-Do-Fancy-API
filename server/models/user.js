@@ -18,7 +18,7 @@ const userSchema = new Schema({
         type: Boolean,
         required: true
     },
-    todo: [{type: Schema.Types.ObjectId, ref: 'Activity'}]
+    todo: [{type: Schema.Types.ObjectId, ref: 'Task'}]
 }, {
     timestamps: true
 })
