@@ -4,11 +4,13 @@ var path = require('path');
 var cookieParser = require('cookie-parser');
 var logger = require('morgan');
 const cors = require('cors');
+const mongoose = require('mongoose');
 var indexRouter = require('./routes/index');
 
 
 var app = express();
 app.use(cors());
+mongoose.connect('mongodb://localhost/todo-app');
 // view engine setup
 // app.set('views', path.join(__dirname, 'views'));
 // app.set('view engine', 'jade');
