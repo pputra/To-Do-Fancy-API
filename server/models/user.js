@@ -4,16 +4,17 @@ const Schema = mongoose.Schema;
 const userSchema = new Schema({
     email: {
         type: String,
-        required: true
+        required: [true, 'Email is required'],
+        unique: [true, 'An Email with that address has already been registered, please use another one']
     },
     password: {
         type: String
     },
     name : {
         type: String,
-        required: true
+        required: [true, 'name is required']
     },
-    outh: {
+    oauth: {
         type: Boolean,
         required: true
     },
